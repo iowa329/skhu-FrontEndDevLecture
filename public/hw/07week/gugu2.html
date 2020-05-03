@@ -1,0 +1,31 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    table { border-collapse: collapse; border: 1px solid;}
+	td { padding: 5px; border-left: 1px solid ; border-right: 1px solid }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <table>
+      <tr v-for="r in row_size">
+        <td v-for="c in col_size" borderless>
+            {{ (c+1) }} * {{ r }} = {{ (c+1) * r }}
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#app',
+      data: {
+        row_size: 9,
+        col_size: 8
+      }
+    })
+   </script>
+</body>    
+</html>
