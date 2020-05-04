@@ -21,7 +21,7 @@
     <div v-show="isShow">
         <table>
             <tr>
-                <td v-for="(value, index1) in arr" v-bind:key="index1">
+                <td v-for="value in arr">
                   {{ value }}
                 </td>
               </tr>        
@@ -38,7 +38,7 @@
         isShow: false
       },
       methods: {
-        create: function (num) {
+        create: function () {
             this.num = document.getElementById("input").value;
             this.isShow = true;
             for (let i = 0; i < this.num; ++i) {
