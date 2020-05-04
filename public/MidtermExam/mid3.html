@@ -16,13 +16,15 @@
 </head>
 <body>
   <div id="app">
-    <input type="text" v-model="num" />
+    <input type="text" id="input" v-model="num" />
     <button type="button" v-on:click="create" value="num">생성</button>
     <div v-show="isShow">
         <table>
             <tr>
-                <td v-for="d in num"> {{ num }} </td>
-            </tr>
+                <td v-for="(value, index1) in arr" v-bind:key="index1">
+                  {{ value }}
+                </td>
+              </tr>        
         </table>
     </div>
   </div>
@@ -32,16 +34,16 @@
       el: '#app',
       data: {
         num: 0,
+        arr: [],
         isShow: false
       },
       methods: {
         create: function (num) {
-            this.num = this.num;
+            this.num = document.getElementById("input").value;
             this.isShow = true;
-            let a = [];
             for (let i = 0; i < this.num; ++i) {
                 let j = Math.floor(Math.random() * 10);
-                a[i] = j;
+                arr[i] = j;
             }
         }
       }
