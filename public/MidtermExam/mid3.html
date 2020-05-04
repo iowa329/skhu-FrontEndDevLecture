@@ -9,21 +9,24 @@
     div#app { padding: 30px; margin: 30px auto; max-width: 500px; 
     border: 1px solid #ccc; box-shadow: 3px 3px 3px #aaa;  }
     body { padding: 20px; }
-    input, button { padding: 5px; margin: 1px; }
+    button { padding: 5px; padding-left: 15px; padding-right: 15px; margin: 1px; }
+    input { padding: 5px; margin: 1px;}
+    table { padding: 15px; padding-top: 10px; padding-bottom: 10px; border: 1px solid; margin-top: 20px;}
   </style>
 </head>
 <body>
   <div id="app">
     <input type="text" v-model="num" />
-    <button type="button" v-on:click="create">생성</button>
+    <button type="button" v-on:click="create" value="num">생성</button>
+    <div v-show="isShow">
+        <table>
+            <tr>
+                <td v-for="d in num"> {{ num }} </td>
+            </tr>
+        </table>
+    </div>
   </div>
-  <div v-show="isShow">
-    <table>
-        <tr v-if=>
-            <td v-for="d in num"> {{}} </td>
-        </tr>
-    </table>
-</div>
+  
   <script type="text/javascript">
     var app = new Vue({
       el: '#app',
@@ -32,8 +35,14 @@
         isShow: false
       },
       methods: {
-        create: function () {
-          this.num = this.num + 1;
+        create: function (num) {
+            this.num = this.num;
+            this.isShow = true;
+            let a = [];
+            for (let i = 0; i < this.num; ++i) {
+                let j = Math.floor(Math.random() * 10);
+                a[i] = j;
+            }
         }
       }
     });
